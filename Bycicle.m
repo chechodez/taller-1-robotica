@@ -1,25 +1,24 @@
 classdef Bycicle 
-    %DiffDrive Differential drive kinematic model
-    %   Calculates forward and inverse kinematics for a differntial drive
-    %   robot
-    %   Author and Copyright Carlos Santacruz 2021
+    %Bycicle drive kinematic model
+    %   Calculates forward and inverse kinematics for a bycicle
+
+
 
     properties
         % Wheel radius in meters [m]
         WheelRadius  = 1.0;
 
         
-        %Distance from wheel back to wheel forward
+        %Distance from back wheel to wheel front
         WheelBase   = 1.0;
     end
     
     methods
         function obj = Bycicle(wheelRadius,  wheelBase)
-            %DiffDrive Class Constructor
+            %Bycicle Class Constructor
             % Inputs: 
             %   wheelRadius: wheel radius [m]
-            %   trackWidth: distance from wheel to wheel [m]
-            %   wheelBase: distance wheel back to wheel forward
+            %   wheelBase: distance back wheel to front wheel
             
             % Assign parameters
             obj.WheelRadius = wheelRadius;
@@ -50,8 +49,8 @@ classdef Bycicle
             %       vx: robot linear speed in robot frame  [m/s]
             %       wz: robot angular speed in robot frame  [rad/s]          
             % Outputs:
-            %       wr: right wheel speed [rad/s]
-            %       wl: left wheel speed [rad/s]
+            %       wr: back wheel speed [rad/s]
+            %       delta:  front wheel angle
             
             vx = r_dxi(1);
             wz = r_dxi(3);
